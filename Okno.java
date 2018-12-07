@@ -15,21 +15,21 @@ import javax.swing.*;
 public class Okno extends JFrame{
     
     
-    Okno(String nazwaOkna){
-        super(nazwaOkna);
-        setSize(800,200);
+    public Okno(int szerokosc, int wysokosc, int x, int y){
+        super();
+        setSize(szerokosc,wysokosc);
         setResizable(false);
-        setLayout(new BorderLayout());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        JPanel p = new JPanel(new FlowLayout());
-        JProgressBar pasek = new JProgressBar();
-        pasek.setMinimum(5);
-        JLabel etykieta = new JLabel("Wynik to: ");
- 
-        p.add(pasek);
-        p.add(etykieta);
-        add(p, BorderLayout.NORTH);
-    
+        setLocation(x,y);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        stworzGUI(szerokosc,wysokosc);
+        //setUndecorated(true); //ukryj ramkÄ™ okna i przyciski kontrolne
+        //animationLoop(); //uruchom pÄ™tlÄ™ animacji gry
 }
+    
+    private void stworzGUI(int szerokosc, int wysokosc){
+        setLayout(new GridLayout(1,1));
+        Obrazki.loadInitialImages();
+        //Toolkit tk = Toolkit.getDefaultToolkit();
+        add(new OknoGry(szerokosc,wysokosc));
+    }
 }

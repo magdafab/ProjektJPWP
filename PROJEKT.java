@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projekt;
 
+package projekt;
+import java.awt.*;
 /**
  *
  * @author Magda
@@ -16,7 +17,19 @@ public class PROJEKT {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Okno o = new Okno("Witaj w grze 'Zwierzatka'!");
+        
+        int szerokoscgry=1024;
+        int wysokoscgry=768;
+        
+        
+        int szerokoscekranu=Toolkit.getDefaultToolkit().getScreenSize().width;
+        int wysokoscekranu=Toolkit.getDefaultToolkit().getScreenSize().height;
+        
+        //wysrodkowanie pola gry
+        int xwysr=(szerokoscekranu-szerokoscgry)/2;
+        int ywysr=(wysokoscekranu-wysokoscgry)/2;       
+                
+        Okno o = new Okno(szerokoscgry,wysokoscgry,xwysr,ywysr);
         o.setVisible(true);
     }
     
