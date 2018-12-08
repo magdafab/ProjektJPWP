@@ -60,15 +60,22 @@ public class OknoGry extends JPanel {
                 g.drawImage(zwierz[i].obrazek,zwierz[i].obecnX,wysokoscpola-zwierz[i].obecnY,(int)(zwierz[i].obrazek.getWidth(null)*(1.0-zwierz[i].obecnY/(double)wysokoscpola)), (int)(zwierz[i].obrazek.getHeight(null)*(1.0-zwierz[i].obecnY/(double)wysokoscpola)),null);
         }
 
-        //Ustaw kolor dolnego paska Menu i narysuj pasek
+       
         g.setColor(new Color(50,30,0));
         g.fillRect(0, wysokoscpola-wysokoscmenu, szerokoscpola, wysokoscmenu);
         //Ustaw kolor domyĹ›lny
         g.setColor(Color.white);
         //Ustaw czcionki do wypeĹ‚nienia paska Menu
-        //g.setFont(menuFont);
-        
+        g.setFont(czcionkamenu);
+          g.drawImage(Obrazki.menuobrazek,szerokoscpola-150,wysokoscpola-wysokoscmenu-30,null);
+            g.setColor(Color.red);
+            g.drawString("KONIEC GRY!",10,wysokoscpola-10);
+            g.setColor(Color.white);
+            g.drawString("O GRZE...",300, wysokoscpola-10);
+            g.drawString("NOWA GRA!",550, wysokoscpola-10);
     }
+    
+
     
     private void startgry(){
         statusg.resetowaniepunktow();

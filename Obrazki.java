@@ -22,7 +22,7 @@ public class Obrazki {
 
     //public static Image menuImage;
   
-   //public static Image menuGameImage;
+    public static Image menuobrazek;
  
     //public static Image logoImage;
   
@@ -49,9 +49,9 @@ public class Obrazki {
     
     public static void loadInitialImages() {
         
-        obraztla = loadImage("obrazy/tlogry.jpg");
+        obraztla = loadImage("obrazy/tlogry1.jpg");
         //menuImage=loadImage("images/menu_1024.png");
-        //menuGameImage=loadImage("images/gra_1024.png");
+        menuobrazek =loadImage("obrazy/menugra.png");
         //logoImage=loadImage("images/domestic_logo_url.png");
         //cursorImage=loadImage("images/target_32_r.png");
 
