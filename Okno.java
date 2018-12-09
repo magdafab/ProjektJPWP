@@ -22,8 +22,6 @@ public class Okno extends JFrame{
         setLocation(x,y);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         stworzGUI(szerokosc,wysokosc);
-        //setUndecorated(true); //ukryj ramkÄ™ okna i przyciski kontrolne
-        //animationLoop(); //uruchom pÄ™tlÄ™ animacji gry
 }
     
     private void stworzGUI(int szerokosc, int wysokosc){

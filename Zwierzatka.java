@@ -27,16 +27,8 @@ public class Zwierzatka {
     public int wysok;
     
     public int dx;
-
-    //private double angle;
-
-   // public int ampl;
-
-   // public double freq;
-
+    
     public int rodzaj;
-
-    //public final static double w=2*Math.PI;
 
     public int szerokoscpola;
 
@@ -56,22 +48,18 @@ public class Zwierzatka {
         wysokoscpola=768;
         trafiony=false;
         
-        //this.ampl=ampl;
-        //this.freq=freq;
         //losujemy zwierzaki
         rodzaj=(int)(0.4+Math.random()*obrazki.length);
         if(rodzaj>=obrazki.length) rodzaj=obrazki.length-1;
         obrazek=obrazki[rodzaj];
         szerok=obrazek.getWidth(null);
         wysok=obrazek.getHeight(null);
-       
-        //setOmega(this.freq);
+
     }
     
     public void trafionobalon(){
         if(!trafiony){
             trafiony=true;
-            //playSound(new File("sounds/balloon_boom.wav"));
         }
     }
     
@@ -93,7 +81,7 @@ public class Zwierzatka {
         return new Point(obecnX,obecnY);
     }
     
-    public void obliczdroge(){
+    public void obliczpolozenie(){
        //liniowo
         obecnX=obecnX+dx;
         if(obecnX>szerokoscpola) { 
