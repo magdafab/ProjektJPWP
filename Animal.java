@@ -7,19 +7,33 @@ import java.util.Random;
  */
 public enum Animal
 {
-	FISH("Ryba", "fish.png", 0), BIRD("Ptak", "bird.png", 1), MAMMAL("Ssak", "mammal.png", 2);
+
+    /**
+     *
+     */
+    FISH("Ryba", new String[]{"fish.png", "shark.png", "clown.png"}, 0),
+
+    /**
+     *
+     */
+    BIRD("Ptak", new String[]{"bird.png", "hummingbird.png", "blue.png"}, 1),
+
+    /**
+     *
+     */
+    MAMMAL("Ssak", new String[]{"mammal.png", "wolf.png", "cat.png"}, 2);
 
 	private String val;
-	private String fileName;
+	private String[] fileNames;
 	private int id;
 
 	/**
 	 * Konstruktor
 	 */
-	Animal(String val, String fileName, int id)
+	Animal(String val, String[] fileNames, int id)
 	{
 		this.val = val;
-		this.fileName = fileName;
+		this.fileNames = fileNames;
 		this.id = id;
 	}
 
@@ -43,16 +57,16 @@ public enum Animal
 	/**
 	 * @return nazwa pliku z obrazkiem
 	 */
-	public String getFileName()
+	public String[] getFileNames()
 	{
-		return fileName;
+		return fileNames;
 	}
 
 	/** Generator liczb losowych */
 	private static final Random GENERATOR = new Random();
 
 	/**
-	 *
+	 * Losuje typ zwierzecia, a nastepnie losuje gatunek
 	 * @return losowa wartosc enum'a
 	 */
 	public static Animal randomAnimal()

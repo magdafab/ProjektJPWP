@@ -23,7 +23,7 @@ public class GamePanel extends JPanel
 	public GamePanel(int width, int height, Game g)
 	{
 		game = g;
-		color = new Color(255,255,255);
+		color = new Color(255,230,230);
 		setPreferredSize(new Dimension(width, height));
 
 		//Obsluga myszy, oblsuga zdarzenia mouseRelesed okazuje sie byc bardziej responsywna niz mousePressed

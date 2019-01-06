@@ -18,9 +18,11 @@ public class Sprite
 	/** Polozenie na OY do ktorego obiekt ma wrocic po wyjsciu za ekran */
 	private final int origin;
 	/** Domyslna predkosc [px/s], minus oznacza, ze skierowana w gore ekranu */
-	private double speedY = -200;
+	private double speedY = -100;
 	/** Zmienna reprezentujaca czy obiekt jest widoczny */
 	private boolean visible;
+	/** Zmienna reprezentujaca gatunek zwierzecia */
+	private int species;
 
 	/**
 	 * Konstruktor obiektu
@@ -58,11 +60,15 @@ public class Sprite
 	{
 		posY += speedY * time;
 
+		Random r = new Random();
 		if(posY + height <= 0)
 		{
 			visible = true;
 			posY = origin;
+
+			//zmiana zwierzecia w momencie ponownego uzycia sprite'a
 			type = Animal.randomAnimal();
+			species = r.nextInt(type.getFileNames().length);
 		}
 	}
 
@@ -73,7 +79,7 @@ public class Sprite
 	public void draw(Graphics2D g2d)
 	{
 		if(visible)
-			g2d.drawImage(Main.images[type.getId()], (int)posX, (int)posY, null);
+			g2d.drawImage(Main.images[type.getId()][species], (int)posX, (int)posY, null);
 	}
 
 	/**

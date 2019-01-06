@@ -11,13 +11,13 @@ public class Main
 	/** Domyslna wysokosc panelu graficznego */
 	public static final int WIDTH=1024;
 	/** Domyslna szerokosc panelu graficznego*/
-	public static final int HEIGHT=768;
+	public static final int HEIGHT=700;
 	/** Domyslna wysokosc paska statusu */
 	public static final int STATUS_HEIGHT = 50;
 	/** Domyslny tytul okna */
 	public static final String WINDOW_TITLE = "ZWIERZATKA";
 	/** Tablica assetow graficznych */
-	public static final Image[] images = new Image[Animal.values().length];
+	public static final Image[][] images = new Image[Animal.values().length][];
 	/** Domyslna wysokosc i szerokosc sprite'a */
 	public static final int IMG_SIZE = 150;
 	/** Domyslna liczba sprite'ow w wierszu siatki */
@@ -45,8 +45,14 @@ public class Main
 
 		//Ladowanie zasobow graficznych
 		for (Animal a : Animal.values())
-			images[a.getId()] = new ImageIcon(a.getFileName()).getImage().getScaledInstance(IMG_SIZE, IMG_SIZE, Image.SCALE_DEFAULT);
-
+		{
+			images[a.getId()] = new Image[a.getFileNames().length];
+			//Zaladuj obrazki wszystkich gatunkow
+			for(int i = 0; i < a.getFileNames().length; i++)
+				images[a.getId()][i] = new ImageIcon(a.getFileNames()[i]).getImage().getScaledInstance(IMG_SIZE, IMG_SIZE, Image.SCALE_DEFAULT);
+		}
+		//Utworzenie okienka z podpisami zwierzat
+		new Tutorial(100, 100);
 		//Utworzenie nowego okna gry i nowej instancji gry
 		new GameWindow(WIDTH, HEIGHT, STATUS_HEIGHT, x, y, WINDOW_TITLE, new Game());
 	}
